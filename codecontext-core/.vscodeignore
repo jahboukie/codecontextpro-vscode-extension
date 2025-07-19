@@ -1,0 +1,41 @@
+# Development files
+.vscode/**
+.vscode-test/**
+.gitignore
+vsc-extension-quickstart.md
+
+# TypeScript source
+src/**
+tsconfig.json
+tslint.json
+
+# Build artifacts
+node_modules/**
+out/test/**
+
+# Development dependencies
+**/.eslintrc.json
+**/*.map
+.nyc_output
+coverage
+
+# Documentation
+*.md
+!README.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+**/*.test.ts
+**/*.test.js
+test/**
+
+# Config files
+.editorconfig
+.gitattributes
+
+# Build scripts
+webpack.config.js
+rollup.config.js

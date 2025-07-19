@@ -1,0 +1,244 @@
+{
+  "name": "codecontext-pro",
+  "displayName": "CodeContext Pro - AI with Persistent Memory",
+  "description": "The EXACT same AI assistant used to build the CodeContext Pro API platform. Persistent memory, 85% confidence execution, zero goldfish brain. $49/month unlimited use.",
+  "version": "1.0.0",
+  "publisher": "codecontextpro",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codecontextpro/vscode-extension.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning",
+    "Extension Packs"
+  ],
+  "keywords": [
+    "ai",
+    "assistant", 
+    "claude",
+    "gpt",
+    "persistent-memory",
+    "execution",
+    "sandbox",
+    "confidence-scoring",
+    "goldfish-memory-killer",
+    "hacker-news",
+    "bootstrap",
+    "api-platform",
+    "cursor-alternative",
+    "copilot-killer"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codecontext.openChat",
+        "title": "🧠 Open AI Chat",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.openMemory",
+        "title": "🧠 Show Memory Dashboard",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.executeCode",
+        "title": "🚀 Execute Code",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.setup",
+        "title": "⚙️ Setup AI Providers",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.trialStatus",
+        "title": "⏰ Trial Status",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.upgrade",
+        "title": "💳 Upgrade to Pro",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.exportMemory",
+        "title": "📤 Export Memory (Teams)",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.importMemory",
+        "title": "📥 Import Memory (Teams)",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.enterLicense",
+        "title": "🔑 Enter License Key",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.checkLicense",
+        "title": "🔍 Check License Status",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.purchaseLicense",
+        "title": "💳 Purchase License",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.renewLicense",
+        "title": "🔄 Renew License",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.contactSupport",
+        "title": "📞 Contact Support",
+        "category": "CodeContext"
+      },
+      {
+        "command": "codecontext.diagnostics",
+        "title": "🔧 Copy Diagnostics",
+        "category": "CodeContext"
+      }
+    ],
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "codecontext-bottom",
+          "title": "CodeContext Memory",
+          "icon": "$(database)"
+        }
+      ],
+      "activitybar": [
+        {
+          "id": "codecontext-chat",
+          "title": "CodeContext AI",
+          "icon": "$(robot)"
+        }
+      ]
+    },
+    "views": {
+      "codecontext-chat": [
+        {
+          "id": "codecontext.chat",
+          "name": "AI Chat",
+          "type": "webview"
+        }
+      ],
+      "codecontext-bottom": [
+        {
+          "id": "codecontext.memory",
+          "name": "Memory",
+          "type": "tree"
+        },
+        {
+          "id": "codecontext.execution",
+          "name": "Code Execution",
+          "type": "tree"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CodeContext Studio",
+      "properties": {
+        "codecontext.anthropicApiKey": {
+          "type": "string",
+          "description": "Anthropic API key for Claude",
+          "scope": "application"
+        },
+        "codecontext.openaiApiKey": {
+          "type": "string", 
+          "description": "OpenAI API key for GPT",
+          "scope": "application"
+        },
+        "codecontext.defaultProvider": {
+          "type": "string",
+          "enum": ["claude", "gpt"],
+          "default": "claude",
+          "description": "Default AI provider"
+        },
+        "codecontext.enableMemory": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable persistent memory"
+        },
+        "codecontext.enableExecution": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable code execution"
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "command": "codecontext.openChat",
+          "when": "editorTextFocus",
+          "group": "codecontext@1"
+        },
+        {
+          "command": "codecontext.executeCode",
+          "when": "editorHasSelection",
+          "group": "codecontext@2"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "codecontext.exportMemory",
+          "when": "view == codecontext.memory",
+          "group": "navigation@1"
+        },
+        {
+          "command": "codecontext.importMemory",
+          "when": "view == codecontext.memory",
+          "group": "navigation@2"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "codecontext.openChat",
+          "group": "codecontext@1"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "codecontext.openChat",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c"
+      },
+      {
+        "command": "codecontext.executeCode",
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.3",
+    "openai": "^5.10.1",
+    "sqlite3": "^5.1.6",
+    "uuid": "^9.0.0",
+    "fs-extra": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "@types/node": "^18.0.0",
+    "@types/uuid": "^8.3.4",
+    "@types/fs-extra": "^9.0.13",
+    "typescript": "^4.9.5"
+  }
+}
